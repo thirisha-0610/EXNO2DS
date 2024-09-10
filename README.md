@@ -1,9 +1,12 @@
 # EXNO2DS
+
 # AIM:
       To perform Exploratory Data Analysis on the given data set.
+
       
 # EXPLANATION:
   The primary aim with exploratory analysis is to examine the data for distribution, outliers and anomalies to direct specific testing of your hypothesis.
+
   
 # ALGORITHM:
 STEP 1: Import the required packages to perform Data Cleansing,Removing Outliers and Exploratory Data Analysis.
@@ -21,6 +24,7 @@ STEP 6: Use displot method to represent the univariate distribution of data.
 STEP 7: Use cross tabulation method to quantitatively analyze the relationship between multiple variables.
 
 STEP 8: Use heatmap method of representation to show relationships between two variables, one plotted on each axis.
+
 
 ## CODING AND OUTPUT
 ![Screenshot (44)](https://github.com/user-attachments/assets/40b913e1-e3a9-4b1b-a1c4-f0a587e9d248)
