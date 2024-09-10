@@ -1,5 +1,7 @@
 # EXNO2DS
 
+# Reg no: 212223040228
+
 # AIM:
       To perform Exploratory Data Analysis on the given data set.
 
@@ -27,18 +29,82 @@ STEP 8: Use heatmap method of representation to show relationships between two v
 
 
 ## CODING AND OUTPUT
-![Screenshot (44)](https://github.com/user-attachments/assets/40b913e1-e3a9-4b1b-a1c4-f0a587e9d248)
-![Screenshot (45)](https://github.com/user-attachments/assets/757bde4c-20d5-4d64-aeac-56d0e5207781)
-![Screenshot (46)](https://github.com/user-attachments/assets/20f216d7-d0f1-42a4-8eea-27194a0d07da)
-![Screenshot (47)](https://github.com/user-attachments/assets/c6aa3006-709b-4d53-9e9e-4c5cb0ebfa31)
-![Screenshot (48)](https://github.com/user-attachments/assets/a4071eb0-ed89-41ba-982e-47ffe33b208a)
-![Screenshot (49)](https://github.com/user-attachments/assets/242c7cc4-c3ad-477d-b385-a098303bc526)
-![Screenshot (50)](https://github.com/user-attachments/assets/ff40da68-ff7b-4d65-b182-b159d3e46bc2)
-![Screenshot (51)](https://github.com/user-attachments/assets/18bbe522-64f5-42c5-a52a-7c586b13de6d)
-![Screenshot (52)](https://github.com/user-attachments/assets/32d6c3a6-8190-40d8-b005-2bc6cacf3b55)
-![Screenshot (53)](https://github.com/user-attachments/assets/16f9e657-2c98-4a31-b419-d818d3eb7c0e)
-![Screenshot (54)](https://github.com/user-attachments/assets/9cb77893-782a-4d99-8e7a-54b7afd983ce)
-![Screenshot (55)](https://github.com/user-attachments/assets/38b6d831-c99b-49b1-991d-5f0bb99e03f5)
-
+```
+import pandas as pd
+df=pd.read_csv("/content/titanic_dataset (1).csv")
+```
+```
+df.isna().sum()
+```
+![image](https://github.com/user-attachments/assets/701c8416-c6d0-463a-ae76-b23da174e097)
+```
+df.dropna(inplace=True)
+```
+```
+df
+```
+![image](https://github.com/user-attachments/assets/1f88d99a-50b1-46b9-8714-2ddd9a2a685d)
+```
+df.info()
+```
+![image](https://github.com/user-attachments/assets/4924312d-8df6-4905-a9f4-17d211a38737)
+```
+df.shape
+```
+![image](https://github.com/user-attachments/assets/cb1357be-0975-4aea-b8ca-571785aec667)
+```
+df.set_index("PassengerId",inplace=True)
+```
+```
+df.describe()
+```
+![image](https://github.com/user-attachments/assets/880d7939-0b9e-4578-b8bf-2d66a22c93e7)
+```
+df.nunique()
+```
+![image](https://github.com/user-attachments/assets/2bc2a5e8-9c71-4070-919a-01d140ce19b0)
+```
+df["Survived"].value_counts()
+```
+![image](https://github.com/user-attachments/assets/04b9f653-32e0-40bf-aee9-2dbff9057cbc)
+```
+per=(df["Survived"].value_counts()/df.shape[0]*100).round(2)
+```
+```
+per
+```
+![image](https://github.com/user-attachments/assets/fab8b894-ec55-4039-8066-9e5625edd168)
+```
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+```
+sns.countplot(data=df,x="Survived")
+```
+![image](https://github.com/user-attachments/assets/ac32577b-82a6-4121-98b8-92a148aa51cb)
+```
+df
+```
+![image](https://github.com/user-attachments/assets/f3b6137f-abeb-41ca-95f2-48f0581f682c)
+```
+df.Pclass.unique()
+```
+![image](https://github.com/user-attachments/assets/eef51402-6b77-480b-ba47-4b97891a3545)
+```
+df.rename(columns= {'Sex': 'Gender'},inplace=True)
+```
+```
+sns.catplot(x="Gender",col="Survived",kind= "count",data=df,height=5,aspect=.7)
+```
+![image](https://github.com/user-attachments/assets/c2e64e47-ee61-4604-a3b8-9849e3571c8a)
+```
+sns.catplot(x='Survived',hue="Gender",data=df,kind = "count")
+```
+![image](https://github.com/user-attachments/assets/b2bd1407-1c00-475c-a5a4-14503a7fece4)
+```
+sns.catplot(data=df,col = "Survived",x="Gender",hue="Pclass",kind = "count")
+```
+![image](https://github.com/user-attachments/assets/cd4d2ff7-0251-43f6-81b4-68fd73bc8e0b)
+```
 # RESULT
         This process helps in effective data cleaning, outlier detection, and exploratory data analysis (EDA).
